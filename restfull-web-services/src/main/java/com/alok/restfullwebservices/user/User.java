@@ -11,7 +11,7 @@ public class User {
 	
 	private int id;
 	
-	@Size(min = 2)
+	@Size(min = 2,message = "name must be atleast 2 chars")
 	private String Name;
 	
 	@Past
