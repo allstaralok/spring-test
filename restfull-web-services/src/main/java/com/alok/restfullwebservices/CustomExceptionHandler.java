@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-import com.alok.restfullwebservices.user.UserDaoServices;
 import com.alok.restfullwebservices.user.UserNotFoundException;
 
 @ControllerAdvice
@@ -41,7 +40,7 @@ public class CustomExceptionHandler extends ResponseEntityExceptionHandler {
 			MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
 		
 		
-		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), ex.getMessage(), ex.getBindingResult().toString());
+		ExceptionResponse exceptionResponse = new ExceptionResponse(new Date(), "Validation Failed", ex.getBindingResult().toString());
 
 		return new ResponseEntity<Object>(exceptionResponse, HttpStatus.BAD_REQUEST);
 	}
