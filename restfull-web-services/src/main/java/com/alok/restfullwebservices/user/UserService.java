@@ -3,6 +3,8 @@ package com.alok.restfullwebservices.user;
 import java.net.URI;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -36,7 +38,7 @@ public class UserService {
 	}
 	
 	@PostMapping("/users")
-	public ResponseEntity<Object> setUser(@RequestBody User user)
+	public ResponseEntity<Object> setUser(@Valid @RequestBody User user)
 	{
 		User saved = service.save(user);
 		
